@@ -7,8 +7,8 @@ services:
     networks:
       - a1-net
     volumes:
-      - /home/atiq23/atiq/docker/docker-project/data-uwsgi:/tmp/uwsgi/
-      - /home/atiq23/atiq/docker/docker-project/data-web:/var/www/mysite/assets/
+      - /root/projects/data-uwsgi:/tmp/uwsgi/
+      - /root/projects/data-db:/var/www/mysite/assets/
     ports:
       - "8888:80"
     depends_on: 
@@ -26,9 +26,9 @@ services:
     networks:
       - a1-net
     volumes:
-      - /home/atiq23/atiq/docker/docker-project/data-uwsgi:/tmp/uwsgi/
-      - /home/atiq23/atiq/docker/docker-project/data-web:/code/staticfiles/
-      - /home/atiq23/atiq/docker/docker-project/data-web:/var/www/mysite/assets/
+      - /root/projects/data-uwsgi:/tmp/uwsgi/
+      - /root/projects/data-web:/code/staticfiles/
+      - /root/projects/data-web:/var/www/mysite/assets/
     depends_on:
       - mysql
 
@@ -42,8 +42,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - /home/atiq23/atiq/docker/docker-project/data-db:/var/lib/mysql
-      - /home/atiq/atiq/docker-project/data-sql:/docker-entrypoint-initdb.d
+      - /root/projects/data-db:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=djangotodo
       - MYSQL_DATABASE=todo
