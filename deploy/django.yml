@@ -60,14 +60,6 @@ spec:
   containers:
     - name: atiq-django-container
           image: iatiqul/jenkins-docker-pipeline
-          command:
-            - sh
-            - -c
-            - |
-              python manage.py collectstatic --noinput
-              python manage.py makemigrations
-              python manage.py migrate
-              uwsgi --ini mysite.uwsgi.ini
           env:
             - name: SECRET_KEY
               value: '8)810zj@#^2xp=1=2rkozbv8#)gub6m1a^9qf&)d-9&x9*c2a_'
