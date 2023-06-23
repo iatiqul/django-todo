@@ -80,3 +80,10 @@ spec:
           mountPath: /code/staticfiles/
         - name: web-persistent-storage
           mountPath: /var/www/mysite/assets/
+  volumes:
+    - name: web-persistent-storage
+      persistentVolumeClaim:
+        claimName: web-pvc
+    - name: uwsgi-persistent-storage
+      persistentVolumeClaim:
+        claimName: uwsgi-pvc
