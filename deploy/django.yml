@@ -59,31 +59,24 @@ metadata:
 spec:
   containers:
     - name: atiq-django-container
-          image: iatiqul/jenkins-docker-pipeline
-          env:
-            - name: SECRET_KEY
-              value: '8)810zj@#^2xp=1=2rkozbv8#)gub6m1a^9qf&)d-9&x9*c2a_'
-            - name: DATABASE_NAME
-              value: 'todo'
-            - name: DATABASE_USER
-              value: 'root'
-            - name: DATABASE_PASSWORD
-              value: 'djangotodo'
-            - name: DATABASE_HOST
-              value: '10.106.117.251'
-            - name: DATABASE_PORT
-              value: '3306'
-          volumeMounts:
-            - name: uwsgi-persistent-storage
-              mountPath: /tmp/uwsgi/
-            - name: web-persistent-storage
-              mountPath: /code/staticfiles/
-            - name: web-persistent-storage
-              mountPath: /var/www/mysite/assets/
-    nodeSelector:
-      dedicated: master
-      tolerations:
-      - key: dedicated
-        operator: Equal
-        value: master
-        effect: NoSchedule
+      image: iatiqul/jenkins-docker-pipeline
+      env:
+        - name: SECRET_KEY
+          value: '8)810zj@#^2xp=1=2rkozbv8#)gub6m1a^9qf&)d-9&x9*c2a_'
+        - name: DATABASE_NAME
+          value: 'todo'
+        - name: DATABASE_USER
+          value: 'root'
+        - name: DATABASE_PASSWORD
+          value: 'djangotodo'
+        - name: DATABASE_HOST
+          value: '10.106.117.251'
+        - name: DATABASE_PORT
+          value: '3306'
+      volumeMounts:
+        - name: uwsgi-persistent-storage
+          mountPath: /tmp/uwsgi/
+        - name: web-persistent-storage
+          mountPath: /code/staticfiles/
+        - name: web-persistent-storage
+          mountPath: /var/www/mysite/assets/
